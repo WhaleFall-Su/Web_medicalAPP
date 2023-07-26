@@ -1,0 +1,926 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #333;
+}
+input,
+button {
+    outline: none;
+}
+img {
+    display: block;
+}
+@font-face {
+    font-family: 'CaveatVariableFontWght';
+    src: url('../font/CaveatVariableFontWght.ttf');
+}
+@font-face {
+    font-family: 'CaveatSemiBold';
+    src: url('../font/CaveatSemiBold.ttf');
+}
+@font-face {
+    font-family: 'InspirationRegular';
+    src: url('../font/InspirationRegular.ttf');
+}
+/* html{
+	font-size: 50px;
+} */
+html {
+    background: #161e3a;
+    overflow: auto;
+}
+.box {
+    width: 100vw;
+    /* height: 100vh; */
+    overflow-y: auto;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.pBox {
+    padding: 30px 20px 80px 20px;
+}
+.fBox {
+    padding-bottom: 80px;
+}
+.videoBox {
+    width: 100%;
+}
+.videoBox iframe {
+    width: 100%;
+    height: 52vw;
+}
+.cardBox {
+    margin-bottom: 30px;
+}
+.cardBox .title {
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.cardBox .card {
+    background: #fff;
+    border-radius: 15px;
+    width: 100%;
+    font-size: 12px;
+    color: #333;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+.mb10 {
+    margin-bottom: 10px;
+}
+.mb30 {
+    margin-bottom: 30px;
+}
+.cardBox .card h2 {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.cardBox .card h2:last-child {
+    margin-bottom: 50px;
+}
+.cardBox .card h3 {
+    font-size: 12px;
+    line-height: 2;
+    word-break: break-word;
+}
+.logBox h1 {
+    text-align: center;
+    font-size: 36px;
+    font-style: italic;
+    margin-bottom: 100px;
+}
+.logBox {
+    margin-top: 80px;
+}
+.logBox h1 a {
+    color: #fff;
+}
+.logBox h1 span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+.footer {
+    height: 0.8rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.2rem;
+}
+.footer a {
+    width: 0.45rem;
+    height: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+.footer button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+.footer .icon,
+.footer img {
+    width: 0.45rem;
+}
+
+.logoBox {
+    position: absolute;
+    top: 0.1rem;
+    left: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.12rem;
+    font-family: 'InspirationRegular';
+    color: #67b1e2;
+}
+.logoBox img {
+    width: 0.5rem;
+}
+.logRight {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.logRight button {
+    width: 1.3rem;
+    height: 0.3rem;
+    background: #ff6141;
+    border-radius: 0.12rem;
+    border: 1px solid #707070;
+    color: #fff;
+    font-size: 0.13rem;
+    margin-bottom: 0.2rem;
+}
+.logRight button a {
+    width: 100%;
+    height: 100%;
+    line-height: 0.3rem;
+    display: inline-block;
+    color: #fff;
+}
+
+.logCon {
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* height: 80vh; */
+    margin-top: 1.5rem;
+}
+.logCon > div {
+    width: 100%;
+    margin-bottom: 0.1rem;
+}
+.logCon p {
+    width: 100%;
+    font-family: 'CaveatSemiBold';
+    font-size: 0.56rem;
+}
+.logCon p.r {
+    text-align: right;
+}
+.logCon img {
+    width: 70vw;
+}
+.logCon button {
+    width: 70vw;
+    height: 1rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    color: #fff;
+    font-size: 0.38rem;
+    border-radius: 0.45rem;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+.logCon a {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.logForm {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+.logForm h2 {
+    font-size: 0.38rem;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 0.2rem;
+}
+.formBox {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #707070;
+    border-radius: 0.1rem;
+    padding: 0.1rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+}
+.formBox > input {
+    text-align: center;
+    width: 100%;
+    height: 0.6rem;
+    border-radius: 0.1rem;
+    border: 1px solid #707070;
+    font-size: 0.18rem;
+    margin-top: 0.15rem;
+}
+.rememberBox {
+    display: flex;
+    padding: 0 0.15rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0.1rem;
+}
+.rememberCon {
+    display: flex;
+    color: #000;
+    font-size: 0.15rem;
+}
+.rememberCon input {
+    width: 0.175rem;
+    height: 0.175rem;
+    margin-right: 0.15rem;
+}
+.logBtn {
+    display: flex;
+}
+.logBtn .btn {
+    width: 1.3rem;
+    height: 0.45rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.15rem;
+    color: #fff;
+    font-size: 0.18rem;
+    text-align: center;
+    line-height: 0.45rem;
+}
+.resetBtn{
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: .2rem;
+}
+.resetBtn .btn{
+    width: 1.6rem;
+}
+.formBox .desc {
+    margin-top: 0.15rem;
+    color: #707070;
+    font-size: 0.18rem;
+    padding: 0 0.15rem;
+    line-height: 1.5;
+}
+
+.header {
+    height: 0.6rem;
+    margin: 0 0.2rem;
+    border-bottom: 1px solid #707070;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h2 {
+    font-size: 0.43rem;
+    font-weight: normal;
+    line-height: 0.7rem;
+}
+.header h2.small {
+    font-size: 0.35rem;
+}
+.header img {
+    width: 0.5rem;
+}
+
+.dashboardBox {
+    margin-top: 0.35rem;
+}
+.dashboardCon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+}
+.dashboardItem {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+}
+.dashboardItem img {
+    width: 100%;
+    height: 27vw;
+}
+.dashboardItem p {
+    text-align: center;
+    font-size: 0.3rem;
+    color: #fff;
+}
+.dashboardBox > img {
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: -0.2rem;
+}
+
+.dateBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.3rem 0;
+}
+.dateBox form {
+    display: flex;
+}
+.dateBox form button {
+    background: none;
+    border: none;
+}
+.dateImgBox img {
+    width: 0.4rem;
+}
+.dateBox > p {
+    width: 1.75rem;
+    margin: 0 0.2rem;
+    font-size: 0.3rem;
+}
+.noticeBox {
+    width: 3rem;
+    height: 1.2rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    border-radius: 0.22rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0.05rem 0.1rem;
+    margin: 0 auto;
+}
+.noticeItem {
+    display: flex;
+    align-items: center;
+    font-size: 0.18rem;
+    color: #000;
+}
+.noticeItem img {
+    width: 0.25rem;
+    margin-right: 0.2rem;
+}
+.noticeItem > p {
+    width: 2.1rem;
+}
+.recordCon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+    margin-top: 0.3rem;
+}
+.recordCon>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+.recordCon>form:nth-child(2n){
+    margin-right: 0;
+}
+.recordItem {
+    display: flex;
+    align-items: flex-end;
+    /* margin-right: 0.2rem; */
+    margin-bottom: 0.2rem;
+}
+.recordItem .rImg1 {
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-right: 0.2rem;
+}
+.recordItem .rImg2 {
+    width: 0.5rem;
+    height: 0.38rem;
+    margin-right: 0.15rem;
+}
+.recordItem .rImg3 {
+    width: 0.38rem;
+    height: 0.43rem;
+    margin-right: 0.27rem;
+}
+.recordItemRight {
+    width: 1.3rem;
+    font-size: 0.125rem;
+    color: #fff;
+}
+.recordItemRight > p {
+    text-align: center;
+}
+.recordItemCon {
+    width: 1.3rem;
+    height: 0.47rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    border-radius: 0.23rem;
+    font-size: 0.25rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.1rem;
+}
+.recordItemCon input {
+    width: 0.85rem;
+    height: 100%;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+}
+.recordItemCon img {
+    width: 0.25rem;
+}
+.recordBtn button {
+    width: 0.85rem;
+    height: 0.3rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.2rem;
+    font-size: 0.18rem;
+    color: #fff;
+    display: block;
+    margin-right: .1rem;
+    /* margin: 0 auto; */
+}
+.recordRate {
+    padding: 0 0.32rem;
+    font-size: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+}
+.recordRate p {
+    width: 100%;
+}
+.badge {
+    width: 1rem;
+    margin-right: 0.3rem;
+    margin-top: 0.3rem;
+}
+.recordCard {
+    padding: 0 0.25rem;
+    margin-top: 0.3rem;
+}
+.recordCard > h2 {
+    font-size: 0.37rem;
+    margin-bottom: 0.3rem;
+}
+.recordCard textarea.card {
+    height: 2rem;
+    font-size: 12px;
+    color: #333;
+    outline: none;
+}
+.addBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+.addBtn button {
+    width: 0.85rem;
+    height: 0.3rem;
+    background: #fe2a00;
+    border: 1px solid #707070;
+    border-radius: 0.12rem;
+    font-size: 0.18rem;
+    color: #fff;
+    display: block;
+}
+.gray {
+    background: #707070!important;
+}
+.profileBox {
+    margin: 0 auto;
+    padding: 0 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.2rem;
+}
+.profileBox > img {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+}
+.profileItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+}
+.profileItem p {
+    width: 100%;
+    height: 0.46rem;
+    font-size: 0.2rem;
+    /* color: #707070; */
+    color: #3f3e3e;
+    background: #fff;
+    border-radius: 0.36rem;
+    text-align: center;
+    line-height: 0.46rem;
+    padding: 0 .2rem;
+}
+.profileItem p.psw{
+    height: auto;
+    min-height: 0.46rem;
+    word-break: break-all;
+    line-height: .4rem;
+    padding-top: .03rem;
+    padding-bottom: .03rem;
+}
+.profileTwo p {
+    width: 2.1rem;
+}
+.logOut {
+    width: 2.5rem;
+    height: 0.8rem;
+    background: #ff6141;
+    border-radius: 0.16rem;
+    font-size: 0.42rem;
+    margin-top: 0.3rem;
+    border: 0;
+    color: #fff;
+    font-family: 'CaveatSemiBold';
+}
+.leaderBoardBox {
+    padding: 0 0.2rem;
+}
+.boardBoxHide{
+    height: 50vh;
+    overflow-y: auto;
+    margin: 0.4rem 0;
+}
+.boardBoxHide::-webkit-scrollbar{
+    display: none;
+}
+.boardBox {
+    /* margin: .3rem .25rem; */
+    margin: 0 auto;
+    width: 100%;
+    background: #fff;
+}
+.boardBox tr {
+    width: 100%;
+    display: flex;
+}
+.boardBox tr th {
+    flex: 1;
+    min-height: 0.6rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #707070;
+    word-break: break-all;
+}
+.boardBox tr th img {
+    width: 0.42rem;
+    margin-left: 0.2rem;
+}
+.boardBox tr th img.noShow {
+    visibility: hidden;
+}
+.boardBox tr th p {
+    flex: 1;
+    font-size: 0.26rem;
+    color: #707070;
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+}
+.boardBox thead tr th p {
+    font-weight: 900;
+    font-size: 0.2rem;
+}
+.rateBox {
+    width: 80vw;
+    height: 82.7vw;
+    background: url('/images/rateBj.png') no-repeat center;
+    background-size: 100%;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    font-size: 0.4rem;
+}
+.rateCon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1em;
+    color: #000;
+    position: absolute;
+    word-break: break-all;
+   overflow: hidden;
+}
+.rateCon img {
+    width: 40%;
+}
+.rateCon h2 {
+    font-weight: normal;
+    font-size: 1em;
+    /* display: -webkit-box;
+    word-break: break-all;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    overflow: hidden; */
+}
+/* .rateCon p{
+    display: -webkit-box;
+    display: box;
+    -webkit-box-align: center;
+    word-break: break-all;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+} */
+.rateCon1 {
+    width: 58.1%;
+    height: 100%;
+    left: 22.5%;
+    top: 0;
+    padding-top: 5%;
+}
+.rateCon1 h2 {
+    margin-top: 30%;
+}
+.rateCon1 p {
+    margin-top: 14%;
+}
+.rateCon2 {
+    width: 27.5%;
+    height: 100%;
+    padding-top: 27.5%;
+    left: 0;
+    top: 0;
+}
+.rateCon2 h2 {
+    margin-top: 26%;
+}
+.rateCon2 p {
+    margin-top: 60%;
+    margin-left: 46%;
+}
+.rateCon3 {
+    width: 25%;
+    height: 100%;
+    padding-top: 40%;
+    right: 0;
+    top: 0;
+}
+.rateCon3 h2 {
+    margin-top: 60.5%;
+}
+.rateCon3 p {
+    margin-top: 12.75%;
+    margin-right: 20%;
+}
+.rateCon2 h2,
+.rateCon3 h2 {
+    font-size: 0.66em;
+}
+.rateCon2 img,
+.rateCon3 img {
+    width: 50%;
+}
+.healthyPs {
+    font-size: 0.15rem;
+    text-align: center;
+}
+.healthyTypeBox {
+    display: flex;
+    justify-content: center;
+    font-size: 0.18rem;
+    margin-top: 0.5rem;
+}
+/* 模拟select */
+ul,
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.selectBox {
+    position: relative;
+    /* transform: scale(.5) translateX(-50%); */
+    z-index: 100;
+}
+.select {
+    width: 100%;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    border: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 0.12rem;
+    color: #000;
+}
+
+.text_left {
+    width: 100%;
+    padding: 0 0.1rem;
+    font-size: 0.18rem;
+}
+input.text_left {
+    background: none;
+    border: none;
+}
+
+.arrow_right {
+    display: block;
+    border-color: #717171 transparent transparent transparent;
+    border-style: solid;
+    border-width: 0.08rem;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin-top: 0.08rem;
+    margin-right: 0.08rem;
+    cursor: pointer;
+}
+
+.list {
+    width: 90%;
+    border: 1px solid #707070;
+    border-top: 0;
+    display: none;
+    position: absolute;
+    top: 0.32rem;
+    left: 5%;
+    background: #fff;
+}
+
+.list li {
+    height: 0.32rem;
+    line-height: 0.32rem;
+    color: #000;
+    border-bottom: 1px solid #707070;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.2rem;
+    overflow: hidden;
+    /* padding: 0 5px; */
+}
+
+.list li:last-child {
+    border: none;
+}
+.list li button {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.list li:hover {
+    background: #f8f3f4;
+    cursor: pointer;
+}
+.weeklyBox {
+    margin-top: 1.2rem;
+}
+.weeklyBox > h2 {
+    font-size: 0.3rem;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0.05rem;
+}
+.weeklyBox .boardBox {
+    width: 70%;
+    color: #000;
+    margin: 0 auto;
+}
+.weeklyBox .boardBox tr th p {
+    color: #000;
+    font-style: normal;
+    font-size: 0.3rem;
+}
+.boardBox thead tr th:first-child p {
+    font-size: 0.3rem;
+}
+.boardBox tbody tr th:last-child p {
+    font-size: 0.18rem;
+}
+.healthyDataBox .dateBox > p {
+    width: auto;
+    font-size: 0.22rem;
+}
+#main {
+    width: 90%;
+    height: 4rem;
+    background: #fff;
+    margin-left: 5%;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+}
+.messageBox {
+    width: 100%;
+    padding: 0 0.22rem;
+    margin-top: 0.5rem;
+}
+.messageBox > h2 {
+    font-size: 0.3rem;
+    margin-bottom: 0.2rem;
+    font-weight: normal;
+    margin-bottom: 0.2rem;
+}
+.messageBox .areaBox {
+    width: 100%;
+    min-height: 1.8rem;
+    border-radius: 0.1rem;
+    background: #fff;
+    padding: 0.2rem;
+    overflow-y: auto;
+}
+
+.messageBox textarea {
+    width: 100%;
+    min-height: 1.8rem;
+    background: none;
+    font-size: 0.2rem;
+    line-height: 1.2;
+    color: #000;
+    font-weight: bold;
+    border: none;
+}
+/* .registerBox {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+}
+.registerBox > h2 {
+    font-size: .4rem;
+    font-weight: 500;
+    text-align: center;
+}
+.registerBox input {
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.26rem;
+    padding: 0 0.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.12rem;
+    border: none;
+}
+.registerBox > input.name {
+    width: 1.5rem;
+    text-align: center;
+}
+.registerBox > button {
+    width: 75%;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    background: #ff6141;
+    font-size: 0.3rem;
+    color: #fff;
+    border: none;
+    display: block;
+    margin: 0.5rem auto;
+    margin-top: 1rem;
+} */
+.tipMes{
+    font-size: .2rem;
+    color: #fe2a00;
+    margin-bottom: .1rem;
+}

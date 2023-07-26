@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="/stylesheets/indexP.css">
+<div class="box fBox">
+    <div class="dashboardBox">
+        <h2>Patients Dashboard</h2>
+        <div class="dashboardHeader">
+            <div class="dashboardDesc">
+                <p>Too high</p>
+                <p>Too low</p>
+                <p>Missing data</p>
+            </div>
+            <div class="dashboardBtn">
+                <a href="/general/clinicianRegisterPatient"><button>Register for a new patient</button></a>
+                <a href="/general/clinicianComments"><button>Patient Comments</button></a>
+            </div>
+        </div>
+        <table class="dashboardTable" border="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Blood glucose level(nmol/L)</th>
+                    <th>Weight(kg)</th>
+                    <th>Insulin taken(dose)</th>
+                    <th>Step count</th>
+                </tr>
+            {{#each dashboardData}}
+            <tbody>
+                <tr>
+                    <th style="background-color:
+                    #fff
+                    ;"><a href="/general/clinicianDetail/{{this.id}}">{{this.realname}}</a></th>
+                    <th style="background-color:
+                    {{#if this.bloodEnter}}
+                        {{#if this.blood.num}}
+                            {{#if this.blood.isLow}}
+                            #27E2FF
+                            {{else}}
+                                {{#if this.blood.isHigh}}
+                                #c41313
+                                {{else}}
+                                #fff
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                        #FCF76B
+                        {{/if}}
+                    {{else}}
+                    #a5a2a2
+                    {{/if}}
+                    ;">{{this.blood.num}}</th>
+                    <th style="background-color:
+                     {{#if this.weightEnter}}
+                        {{#if this.weight.num}}
+                            {{#if this.weight.isLow}}
+                            #27E2FF
+                            {{else}}
+                                {{#if this.weight.isHigh}}
+                                #c41313
+                                {{else}}
+                                #fff
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                        #FCF76B
+                        {{/if}}
+                    {{else}}
+                    #a5a2a2
+                    {{/if}}
+                    ;">{{this.weight.num}}</th>
+                    <th style="background-color:
+                     {{#if this.insulinEnter}}
+                        {{#if this.insulin.num}}
+                            {{#if this.insulin.isLow}}
+                            #27E2FF
+                            {{else}}
+                                {{#if this.insulin.isHigh}}
+                                #c41313
+                                {{else}}
+                                #fff
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                        #FCF76B
+                        {{/if}}
+                    {{else}}
+                    #a5a2a2
+                    {{/if}}
+                    ;">{{this.insulin.num}}</th>
+                    <th style="background-color:
+                    {{#if this.stepEnter}}
+                        {{#if this.step.num}}
+                            {{#if this.step.isLow}}
+                            #27E2FF
+                            {{else}}
+                                {{#if this.step.isHigh}}
+                                #c41313
+                                {{else}}
+                                #fff
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                        #FCF76B
+                        {{/if}}
+                    {{else}}
+                    #a5a2a2
+                    {{/if}}
+                    ;">{{this.step.num}}</th>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+    <div class="footer">
+        <a href="">
+            <img src="/images/home1.png" alt="">
+        </a>
+        <a href="/general/clinicianProfile">
+            <img src="/images/user.png" alt="">
+        </a>
+        <form action="/general/clinicianLogout" method="post">
+            <button type="submit">
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/clinicianController.js"></script>

@@ -1,0 +1,69 @@
+<link rel='stylesheet' href='/stylesheets/indexP.css' />
+<div class='box fBox'>
+    <form method='POST' action='/general/clinicianRegister' class='registerBox' onsubmit="return false">
+        <h2>Register</h2>
+        <input class='name firstname' type='text' name='firstname' placeholder='First name' />
+        <input class='name lastname' type='text' name='lastname' placeholder='Last name' />
+        <input type='text' name='email' class="email" placeholder='Enter Your email' />
+        <input type='password' name='password' class="password" placeholder='Set Your password' />
+        <input type='password' name='confirmpassword' class="confirmpassword" placeholder='Confirm Your password' />
+        <input type='text' name='displayname' class="displayname" placeholder='Enter your display name' />
+        <input type='text' class="birth" name="birth" placeholder='Enter your  date of birth similar to 2022/05/05' />
+        <textarea class='briefTextBio' name='briefTextBio'  placeholder='Enter your profile'></textarea>
+        {{!-- <input type='text' name='birth' maxlength="10" placeholder='Enter your date of birth similar to 2022/05/05' /> --}}
+        {{!-- <div class='codeBox'>
+            <input type='text' name='code' placeholder='Send authentication code' />
+            <button>Enter code</button>
+        </div> --}}
+        <button type='submit'>Register</button>
+    </form>
+    <div class='footer'>
+        <a href='/general/home'>
+            <img src='/images/home1.png' alt='' />
+        </a>
+        <a href=''></a>
+        <a href=''></a>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src='/javascripts/clinicianController.js'></script>
+<script>
+let birth=document.querySelectorAll(".birth")[0];
+birth.onblur=function birthonblur(){
+    let reg=/^\d{4}\/\d{2}\/\d{2}$/;
+    if(!reg.test(birth.value)){
+        alert('Please enter a birthday in XXXX / XX / XX format')
+    }
+}
+$(".registerBox button").click(()=>{
+    let birth=$(".birth").val()
+    let reg=/^\d{4}\/\d{2}\/\d{2}$/;
+    if(!reg.test(birth)){
+        alert('Please enter a birthday in XXXX / XX / XX format');
+        return;
+    }
+    let data={
+        firstname:$(".firstname").val(),
+        lastname:$(".lastname").val(),
+        email:$(".email").val(),
+        password:$(".password").val(),
+        confirmpassword:$(".confirmpassword").val(),
+        displayname:$(".displayname").val(),
+        birth:$(".birth").val(),
+        briefTextBio:$(".briefTextBio").val()
+    }
+     $.ajax({
+        type: "POST",
+        url: '/general/clinicianRegister',
+        data,
+        success: function(res){
+            console.log(res);
+            if(res.errno == '-1'){
+                alert(res.message)
+            }else{
+                window.location.href="/general/clinicianLoginForm"
+            }
+        }
+    });
+})
+</script>

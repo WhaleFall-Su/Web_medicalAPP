@@ -1,0 +1,918 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #333;
+}
+input,
+button {
+    outline: none;
+}
+img {
+    display: block;
+}
+@font-face {
+    font-family: 'CaveatVariableFontWght';
+    src: url('../font/CaveatVariableFontWght.ttf');
+}
+@font-face {
+    font-family: 'CaveatSemiBold';
+    src: url('../font/CaveatSemiBold.ttf');
+}
+@font-face {
+    font-family: 'InspirationRegular';
+    src: url('../font/InspirationRegular.ttf');
+}
+html {
+    background: #161e3a;
+    overflow: auto;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.box {
+    width: 100vw;
+    height: 100%;
+    overflow-y: auto;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+}
+.fBox {
+    padding-bottom: 0.66rem;
+}
+.wBox {
+    background: #fff;
+}
+.logoBox {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.4rem;
+    font-family: 'InspirationRegular';
+    color: #67b1e2;
+}
+.logoBox img {
+    width: 1.2rem;
+}
+.artwork {
+    width: 13.5rem;
+    height: 8rem;
+    position: absolute;
+    top: 2.7rem;
+    left: 0;
+}
+.rightBox {
+    width: 6.2rem;
+    height: 9.2rem;
+    background: #7eb5ff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'CaveatSemiBold';
+    font-size: 0.5rem;
+    color: #fff;
+    border-bottom-left-radius: 1rem;
+    padding: 0 0.1rem;
+}
+.homeCon {
+    font-size: 1rem;
+    color: #ffc504;
+    margin-top: 1rem;
+}
+.fillBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.8rem;
+}
+.fillBox a {
+    width: 3rem;
+    height: 1rem;
+    background: #f03e30;
+    color: #fff;
+    font-size: 0.3rem;
+    text-align: center;
+    line-height: 1rem;
+}
+.fillBox a:last-child {
+    background: #fff;
+    color: #000;
+}
+.logCon {
+    width: 10rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .84rem;
+    /* font-family: 'CaveatSemiBold'; */
+    margin-top: 2rem;
+}
+.logCon h2{
+    font-weight: 500;
+}
+.logBtnBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.logBtnBox button {
+    width: 4.24rem;
+    height: 1.4rem;
+    background: #ff6141;
+    font-size: 0.7rem;
+    border: none;
+    color: #fff;
+    border-radius: 0.68rem;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.loginBox {
+    width: 7rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+.loginBox > h2 {
+    font-size: 1rem;
+    font-family: 'CaveatSemiBold';
+}
+.loginBox > input {
+    width: 100%;
+    height: 1rem;
+    border-radius: 0.56rem;
+    font-size: 0.3rem;
+    text-align: center;
+    margin-top: 1rem;
+    border: none;
+}
+.loginBox > button {
+    width: 2.83rem;
+    height: 1.02rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.56rem;
+    font-size: 0.5rem;
+    color: #fff;
+    font-family: 'CaveatSemiBold';
+    margin-top: 0.8rem;
+}
+
+.registerBox {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+}
+.registerBox > h2 {
+    /* width: 100%; */
+    font-size: .9rem;
+    font-weight: 500;
+    /* font-family: 'CaveatSemiBold'; */
+    text-align: center;
+}
+.registerBox input {
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.26rem;
+    padding: 0 0.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.12rem;
+    border: none;
+}
+.registerBox > input.name {
+    width: 1.5rem;
+    text-align: center;
+}
+.codeBox {
+    width: 10rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -2.3rem;
+}
+.codeBox input {
+    width: 3.2rem;
+    height: 0.5rem;
+    border-radius: 0.26rem;
+    padding: 0 0.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.12rem;
+    border: none;
+    margin-top: 0;
+}
+.codeBox > button {
+    width: 2rem;
+    height: 0.5rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    font-size: 0.15rem;
+    color: #707070;
+    cursor: pointer;
+}
+.registerBox > button {
+    width: 9rem;
+    height: 0.72rem;
+    border-radius: 0.56rem;
+    background: #ff6141;
+    font-size: 0.36rem;
+    color: #fff;
+    border: none;
+    display: block;
+    margin: 0.5rem auto;
+    margin-top: 1.5rem;
+}
+.dashboardBox {
+    padding: 0.55rem 1rem;
+}
+.dashboardBox > h2 {
+    font-size: 0.65rem;
+    font-weight: 500;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.dashboardDesc {
+    display: flex;
+}
+.dashboardDesc p {
+    font-size: 0.42rem;
+    margin-right: 0.2rem;
+    display: flex;
+    align-items: center;
+}
+.dashboardDesc p::before {
+    content: '';
+    width: 0.52rem;
+    height: 0.52rem;
+    border-radius: 50%;
+    background: #c41313;
+    margin-right: 0.2rem;
+    display: inline-block;
+}
+.dashboardDesc p:nth-child(2):before {
+    background: #27e2ff;
+}
+.dashboardDesc p:nth-child(3):before {
+    /* background: #70fc6b; */
+    background: #fcf76b;
+}
+.dashboardBtn button {
+    padding: 0 0.1rem;
+    height: 0.88rem;
+    min-width: 4rem;
+    font-size: 0.36rem;
+    border-radius: 0.52rem;
+    background: #fe2a00;
+    /* font-family: 'CaveatSemiBold'; */
+    border: none;
+    margin-left: 0.3rem;
+    color: #fff;
+    z-index: -1;
+    position: relative;
+}
+.dashboardTable {
+    width: 100%;
+    font-size: 0.35rem;
+    color: #000;
+    margin-top: 0.5rem;
+}
+.dashboardTable tr {
+    margin-bottom: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.dashboardTable th {
+    text-align: center;
+    width: 3.2rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    border-radius: 0.36rem;
+}
+.dashboardTable thead tr th:nth-child(2){
+    font-size: .22rem;
+}
+.dashboardTable thead tr th:nth-child(4){
+    font-size: .28rem;
+}
+.dashboardTable thead th {
+    background: #f9b8b8;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.dashboardTable tbody th {
+    background: #fff;
+    font-weight: 500;
+}
+.profileBox {
+    width: 15rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.profileBox > img {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+}
+.profileItem {
+    margin-top: 0.3rem;
+    display: flex;
+}
+.profileItem p {
+    width: 8rem;
+    height: 0.6rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    border-radius: 0.3rem;
+    padding: 0 0.3rem;
+    font-size: 0.2rem;
+    color: #333;
+    line-height: 0.6rem;
+}
+.profileItem p.psw{
+    height: auto;
+    min-height: 0.6rem;
+    word-break: break-all;
+    line-height: .4rem;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+.nameItem p {
+    width: 5.8rem;
+    margin-right: 0.3rem;
+}
+.profileBtn {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+.profileBtn button {
+    width: 4rem;
+    height: 0.88rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.56rem;
+    color: #fff;
+    font-size: 0.4rem;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.conmmentsDesc {
+    font-size: 0.2rem;
+    width: 4.7rem;
+}
+.commentsBox {
+    width: 17rem;
+    margin-top: 0.5rem;
+}
+.commentsHeader,
+.commentsItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+}
+.commentsHeader p,
+.commentsItem p {
+    /* height: 0.72rem; */
+    border: 1px solid #707070;
+    border-radius: 0.36rem;
+    color: #000;
+    font-size: 0.32rem;
+    text-align: center;
+    line-height: 0.72rem;
+}
+
+.commentsHeader p:first-child,
+.commentsItem p:first-child {
+    width: 3.24rem;
+    height: 0.72rem;
+}
+.commentsHeader p:last-child,
+.commentsItem p:last-child {
+    width: 13rem;
+}
+.commentsItem p:last-child {
+    text-align: left;
+    min-height: 0.72rem;
+    max-height: 2.16rem;
+    height: auto;
+    /* display: flex;
+    align-items: center; */
+    overflow-y: auto!important;
+}
+/* .commentsItem:last-child p:last-child {
+    text-align: center;
+} */
+.commentsItem p a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.4rem;
+}
+.commentsItem p:last-child a{
+    word-break: break-all;
+    white-space:normal;
+    /* line-height: .46rem; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    height: auto;
+}
+.commentsHeader p {
+    background: #f9b8b8;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.commentsItem p {
+    background: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* padding: 0 0.4rem; */
+}
+.noteBox {
+    padding: 0.55rem 1rem;
+}
+.noteBox > h2 {
+    font-size: 0.75rem;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.noteBtn a{
+    width: 4rem;
+    height: 0.88rem;
+    position: absolute;
+    right: 0.6rem;
+    top: 1.3rem;
+    /* z-index: 100; */
+}
+.noteBtn a button {
+    width: 4rem;
+    height: 0.88rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.5rem;
+    font-size: 0.36rem;
+    color: #fff;
+    position: relative;
+    z-index: -1;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.noteCon {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.8rem;
+}
+.noteItem {
+    width: 100%;
+    margin-left: 0.3rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    border-radius: 0.38rem;
+    font-size: 0.4rem;
+    color: #000;
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 0.4rem;
+    position: relative;
+    overflow: hidden;
+}
+.noteActiveBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.6rem;
+}
+.add,
+.save {
+    width: 2.4rem;
+    height: 0.88rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.4rem;
+    font-size: 0.36rem;
+    color: #fff;
+    margin-left: 0.3rem;
+    text-align: center;
+    line-height: 0.88rem;
+    /* font-family: 'CaveatSemiBold'; */
+    cursor: pointer;
+}
+.noteItem .enter {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 0.4rem;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.3rem 0.4rem;
+}
+.visNote {
+    visibility: hidden;
+    font-size: 0.4rem;
+    color: #000;
+}
+
+.footer {
+    height: 0.66rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.2rem;
+}
+.footer a {
+    width: 0.45rem;
+    height: 0.66rem;
+    display: flex;
+    align-items: center;
+}
+.footer button{
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+.footer img {
+    height: 0.45rem;
+}
+
+.detailBox {
+    width: 14rem;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+}
+.detailItem {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+.detailItem > h2 {
+    font-size: 0.5rem;
+    /* font-family: 'CaveatSemiBold'; */
+    margin-right: 0.2rem;
+}
+.detailItem > p {
+    min-width: 2.8rem;
+    padding: 0 0.2rem;
+    height: 0.56rem;
+    border-radius: 0.28rem;
+    background: #ffffff;
+    border: 1px solid #707070;
+    color: #000;
+    font-size: 0.4rem;
+    line-height: 0.56rem;
+    text-align: center;
+}
+.infoBox {
+    width: 14rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    position: relative;
+}
+.infoItem {
+    width: 3.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.infoItem > h2 {
+    width: 3.6rem;
+    height: 0.75rem;
+    background: #f9b8b8;
+    border: 1px solid #707070;
+    border-radius: 0.3rem;
+    color: #000;
+    font-size: 0.3rem;
+    font-weight: normal;
+    line-height: 0.75rem;
+    text-align: center;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.infoItem>input{
+    width: 3.6rem;
+    height: .75rem; 
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    border-radius: 0.6rem;
+    color: #000;
+    font-size: 0.2rem;
+    margin-top: .5rem;
+}
+.infoItem select {
+    width: 8rem;
+    height: 1.5rem;
+    font-size: 0.12rem;
+    border-radius: 0.6rem;
+    border: 1px solid #707070;
+    background: #fff;
+    outline: none;
+    text-align: center;
+    transform: scale(0.5);
+    margin-left: -1.8rem;
+}
+.infoItem select option {
+    width: 80%;
+    overflow: hidden;
+    font-size: 0.2rem;
+    text-align: center;
+    transform: scale(0.5);
+}
+
+/* 模拟select */
+ul,
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.selectBox {
+    position: relative;
+    margin-top: .5rem;
+    z-index: 100;
+}
+.select {
+    width: 3.6rem;
+    height: .75rem; 
+    line-height: .75rem;
+    /* width: 8rem;
+    height: 1.5rem;
+    line-height: 1.5rem; */
+    border: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 0.6rem;
+    color: #000;
+}
+
+.text_left {
+    /* display: block; */
+    width: 100%;
+    /* float: left; */
+    padding: 0 0.1rem;
+    font-size: 0.2rem;
+    /* transform: scale(.5); */
+    /* margin-left: -.8rem; */
+}
+input.text_left {
+    background: none;
+    border: none;
+}
+
+.arrow_right {
+    display: block;
+    border-color: #717171 transparent transparent transparent;
+    border-style: solid;
+    border-width: 0.1rem;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    /* float: left; */
+    margin-top: 0.1rem;
+    margin-right: 0.1rem;
+    cursor: pointer;
+}
+
+.list {
+    width: 90%;
+    border: 1px solid #707070;
+    border-top: 0;
+    display: none;
+    position: absolute;
+    top: .75rem;
+    left: 5%;
+    background: #fff;
+}
+
+.list li {
+    height: 0.4rem;
+    line-height: 0.4rem;
+    color: #000;
+    border-bottom: 1px solid #707070;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.2rem;
+    /* padding: 0 5px; */
+}
+
+.list li:last-child {
+    border: none;
+}
+.list li button {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.list li:hover {
+    background: #f8f3f4;
+    cursor: pointer;
+}
+.notice {
+    width: 100%;
+    display: block;
+    font-size: 0.2rem;
+    text-align: right;
+    margin-top: 1.5rem;
+    margin-right: 0.3rem;
+    /* transform: scale(0.5) translateX(50%); */
+}
+.chartBox {
+    width: 14rem;
+    height: 13rem;
+    /* padding: .5rem 0; */
+    background: #fff;
+    border-radius: 0.3rem;
+    overflow: hidden;
+}
+#main {
+    width: 100%;
+    height: 10rem;
+}
+.selectTime {
+    width: 1.8rem;
+    margin: 0 auto;
+    /* transform: scale(0.5) translateX(25%); */
+    margin-top: 0.3rem;
+    /*overflow: hidden; */
+}
+.selectTime .select {
+    width: 1.8rem;
+    height: .6rem;
+    border-radius: 0.14rem;
+    background: #c9dbff;
+    text-align: center;
+}
+.selectTime .text_left {
+    font-size: 0.3rem;
+}
+.selectTime .list {
+    /* width: ; */
+    top: .6rem;
+}
+.selectHealth {
+    width: 3.6rem;
+    margin-left: 0.5rem;
+}
+.selectHealth .select {
+    border-radius: 0.14rem;
+    background: #c9dbff;
+}
+.healthBtn {
+    width: 3.2rem;
+    height: 0.9rem;
+    background: #ff6141;
+    border: 1px solid #707070;
+    border-radius: 0.5rem;
+    font-size: 0.36rem;
+    color: #fff;
+    /* font-family: 'CaveatSemiBold'; */
+}
+.healthBtnBox {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+.detailItem textarea {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.3rem;
+    background: #fff;
+    margin-top: 0.5rem;
+    font-size: 0.32rem;
+    padding: 0.3rem;
+}
+.infoBox>.infoItem{
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.infoBox>form{
+    display: flex;
+    flex: 2;
+}
+.infoBox>form .infoItem{
+    flex: 1;
+}
+.infoBox>form .infoItem:nth-child(1){
+    align-items: center;
+}
+
+.infoBox>form .infoItem:nth-child(2){
+    align-items: flex-end;
+}
+
+.datatypeBtn{
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+}
+.rememberBox{
+    width: 100%;
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    font-size: .3rem;
+    margin-top: .3rem;
+    margin-left: .2rem;
+}
+.rememberBox input{
+    margin-right: .1rem;
+}
+.dateBox {
+    /* width: 4rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: .3rem;
+}
+.dateBox form {
+    display: flex;
+}
+.dateBox form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.dateImgBox img {
+    width: 0.4rem;
+}
+.dateBox > p {
+    /* width: 1.75rem; */
+    margin: 0 0.2rem;
+    font-size: 0.3rem;
+    color: #333;
+}
+.registerBox .briefTextBio{
+    width: 100%;
+    min-height: 0.5rem;
+    border-radius: 0.26rem;
+    padding: 0 0.1rem;
+    margin-top: 0.5rem;
+    font-size: 0.12rem;
+    border: none;
+    line-height: .5rem;
+    outline: none;
+    color: #333;
+}
+.resetBox{
+    background: #fff;
+    border: 1px solid #707070;
+    border-radius: 0.1rem;
+    padding: 0.1rem 0.8rem;
+    margin-top: .3rem;
+}
+.resetBox input{
+    height: .62rem;
+    font-size: .18rem;
+    border-radius: 0.1rem;
+    border: 1px solid #707070;
+}
+.resetTitle{
+    font-size: .9rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: .8rem;
+}
+.resetBox button{
+    width: 80%;
+    margin-top: 1rem;
+}

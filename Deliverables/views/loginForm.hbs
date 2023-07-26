@@ -1,0 +1,55 @@
+<link rel='stylesheet' href='/stylesheets/index.css' />
+<link rel='stylesheet' href='/stylesheets/media.css' />
+<div class='box'>
+    <div class='logForm'>
+        <h2>Log in</h2>
+        {{#if loginMessage}}
+            <p class="tipMes">{{loginMessage}}</p>
+        {{/if}}
+        <form
+            class='formBox'
+            action='/general/loginForm'
+            method='post'
+            accept-charset='utf-8'
+        >
+            <input
+                type='text'
+                placeholder='Enter your e-mail'
+                name='email'
+                id=''
+                value=''
+            />
+            <input
+                type='password'
+                placeholder='Enter your password'
+                name='password'
+                id=''
+                value=''
+            />
+            <div class='rememberBox'>
+                <div class='rememberCon'>
+                    <input
+                        type='checkbox'
+                        name='remember'
+                        id='remember'
+                        value=''
+                    />
+                    <label for='remember'>remember me</label>
+                </div>
+                <div class='logBtn'>
+                    <input class='btn' type='submit' value='Log in' />
+                </div>
+            </div>
+            <p class='desc'>If you do not have an account, please contact your
+                clinician.</p>
+        </form>
+    </div>
+
+    <div class='footer'>
+        <a href=''></a>
+        <a href='/general/home'>
+            <img src='/images/home.png' alt='' />
+        </a>
+        <a href=''></a>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<link rel='stylesheet' href='/stylesheets/indexP.css' />
+<div class='box fBox'>
+    <h2 class="resetTitle">Reset my password</h2>
+    <form method='POST' action='/general/clinicianReset' class='registerBox resetBox' onsubmit="return false">
+        <input
+            type='password'
+            class="cur_password"
+            name='cur_password'
+            placeholder='Enter your current password'
+        />
+        <input
+            type='password'
+            class="new_password"
+            name='new_password'
+            placeholder='Enter your new password'
+        />
+        <input
+            type='password'
+            class='confirm_password'
+            name='confirm_password'
+            placeholder='Confirm your new password'
+        />
+        {{! <input type='text' name='displayname' placeholder='Enter your display name' /> }}
+        {{! <input type='text' name='email' placeholder='Enter your email' /> }}
+        {{! <div class='codeBox'>
+            <input type='text' name='code' placeholder='Send authentication code' />
+            <button>Enter code</button>
+        </div> }}
+        <button type='submit'>Reset</button>
+    </form>
+    <div class='footer'>
+        <a href='/general/clinicianDashboard'>
+            <img src='/images/home1.png' alt='' />
+        </a>
+        <a href='/general/clinicianProfile'>
+            <img src='/images/user.png' alt='' />
+        </a>
+        <a href='/general/home'>
+            <img src='/images/exit.png' alt='' />
+        </a>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src='/javascripts/clinicianController.js'></script>
+<script>
+    $(".registerBox button").click(()=>{
+        let data={
+            cur_password:$(".cur_password").val(),
+            new_password:$(".new_password").val(),
+            confirm_password:$(".confirm_password").val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '/general/clinicianReset',
+            data,
+            success: function(res){
+                console.log(res);
+                if(res.errno == '-1'){
+                    alert(res.message)
+                }else{
+                    window.location.href="/general/clinicianLogin"
+                }
+            }
+        });
+    })
+</script>

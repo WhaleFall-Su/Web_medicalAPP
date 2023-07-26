@@ -1,0 +1,193 @@
+<link rel="stylesheet" href="/stylesheets/indexP.css">
+<div class="box fBox">
+    <div class="detailBox">
+        <div class="detailItem">
+            <h2>Patient name: </h2>
+            <p>{{name}}</p>
+        </div>
+        <div class="detailItem">
+            <h2>Information:</h2>
+            <div class="infoBox">
+                <div class="infoItem">
+                    <h2>Datatype</h2>
+                    <form class="selectBox" method="post" action="/general/clinicianDetail/blood/{{id}}" onsubmit="return false">
+                        <div class="select">
+                            <input type="text" name="blood" class="text_left" readonly value="{{checkBlood}}">
+                            <span class="arrow_right"></span>
+                        </div>
+                        <ul class="list">
+                            {{#each bloods}}
+                            <li><button name="blood" action="/general/clinicianDetail/blood/{{id}}" type="submit">{{this}}</button></li></button>
+                            {{/each}}
+                        </ul>
+                    </form>
+                </div>
+                <form method="post" action="/general/clinicianDetail/datatype/{{id}}" onsubmit="return false">
+                    <div class="infoItem">
+                        <h2>Upper safety threshold</h2>
+                        <div class="selectBox">
+                            <div class="select">
+                                <input type="text" name="upper" class="text_left upper" style="text-align: center;" value="{{checkUpper}}">
+                                <span class="arrow_right"></span>
+                            </div>
+                            <ul class="list">
+                                {{#each uppers}}
+                                <li><button>{{this}}</button></li></button>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="infoItem">
+                        <h2>Lower safety threshold</h2>
+                        <div class="selectBox">
+                            <div class="select">
+                                <input type="text" name="lower" class="text_left lower" style="text-align: center;" value="{{checkLower}}">
+                                <span class="arrow_right"></span>
+                            </div>
+                            <ul class="list">
+                                {{#each lowers}}
+                                <li><button>{{this}}</button></li></button>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <button action="/general/clinicianDetail/datatype/{{id}}" class="datatypeBtn healthBtn" type="submit">Submit</button>
+                </form>
+            </div>
+            <span class="notice">*N/A is no need to record</span>
+        </div>
+        <div class="detailItem">
+            <h2>Health data: </h2>
+            <div class="chartBox">
+                {{!-- <form class="selectTime selectBox" method="post" action="/general/clinicianDetail/time">
+                    <div class="select">
+                        <input type="text" name="time" class="text_left" readonly value="{{checkTime}}">
+                        <span class="arrow_right"></span>
+                    </div>
+                    <ul class="list">
+                        {{#each headlthy.times}}
+                        <li><button type="submit">{{this}}</button></li></button>
+                        {{/each}}
+                    </ul>
+                </form> --}}
+                <div class="dateBox">
+                    <form method="POST" action="/general/clinicianDetail/left/{{id}}">
+                        <button type="submit">
+                            <div class="dateImgBox left">
+                                <img src="/images/left.png" alt="">
+                            </div>
+                        </button>
+                    </form>
+                    <p>{{clinicianDetailStartDateString}} to {{clinicianDetailEndDateString}}</p>
+                    <form method="POST" action="/general/clinicianDetail/right/{{id}}">
+                        <button type="submit">
+                            <div class="dateImgBox right">
+                                <img src="/images/right.png" alt="">
+                            </div>
+                        </button>
+                    </form>
+                </div>
+                <form class="selectHealth selectBox" method="post" action="/general/clinicianDetail/healthyType/{{id}}" onsubmit="return false">
+                    <div class="select">
+                        <input type="text" name="healthyType" class="text_left" readonly value="{{checkHealthyType}}">
+                        <span class="arrow_right"></span>
+                    </div>
+                    <ul class="list">
+                        {{#each headlthy.healthyTypes}}
+                        <li><button name="healthyType" action="/general/clinicianDetail/healthyType/{{id}}" type="submit">{{this}}</button></li></button>
+                        {{/each}}
+                    </ul>
+                </form>
+                <div id="main" xData="{{healthyXData}}" yData="{{healthyYData}}"></div>
+            </div>
+            <div class="healthBtnBox">
+               <a href="/general/clinicianNote/{{id}}"><button class="healthBtn">Clinical Note</button></a>
+            </div>
+        </div>
+        <form class="detailItem" method="post" action="/general/clinicianDetail/message/{{id}}">
+            <h2>Support message: </h2>
+            <textarea name="message" id="" cols="30"
+                rows="10">{{message}}</textarea>
+            <div class="healthBtnBox">
+                <button class="healthBtn" type="submit">Send message</button>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="/general/clinicianDashboard">
+            <img src="/images/home1.png" alt="">
+        </a>
+        <a href="/general/clinicianProfile">
+            <img src="/images/user.png" alt="">
+        </a>
+        <form action="/general/clinicianLogout" method="post">
+            <button type="submit">
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/echarts.js"></script>
+<script src="/javascripts/clinicianController.js"></script>
+{{!-- fontFamily: "CaveatSemiBold" --}}
+<script>
+    $(function () {
+        $('.arrow_right').click(function (e) {
+            $(this).parents(".selectBox").find('.list').toggle();
+            e.stopPropagation();
+            $('body').click(function () {
+                $('.list').hide();
+            })
+        })
+        $('.list li button').click(function(){
+            console.log($(this).text())
+            $(this).parents(".selectBox").find('.text_left').val($(this).text());
+            let name = $(this).attr("name");
+            let action = $(this).attr("action");
+            if(!action){
+                return;
+            }
+            let data={}
+            data[name]=$(this).text();
+             $.ajax({
+                type: "POST",
+                url: action,
+                data,
+                success: function(res){
+                    console.log(res);
+                    if(res.errno == '-1'){
+                        alert(res.message)
+                    }else{
+                        window.location.href="/general/clinicianDetail/{{id}}"
+                    }
+                }
+            });
+        })
+
+        $(".datatypeBtn").click(function(){
+            let data={
+                upper:$(".upper").val(),
+                lower:$(".lower").val(),
+            }
+            console.log(data)
+            let action = $(this).attr("action");
+            $.ajax({
+                type: "POST",
+                url: action,
+                data,
+                success: function(res){
+                    console.log(res);
+                    if(res.errno == '-1'){
+                        alert(res.message)
+                    }else{
+                        window.location.href="/general/clinicianDetail/{{id}}"
+                    }
+                }
+            });
+        })
+
+
+    })
+    renderCharts()
+</script>

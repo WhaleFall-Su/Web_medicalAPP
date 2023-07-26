@@ -1,0 +1,108 @@
+@media screen and (max-width: 2000px) {
+    html {
+        font-size: 87px;
+    }
+    .box {
+        width: 10rem;
+    }
+    .logForm {
+        width: 6rem;
+    }
+    .logCon {
+        width: 5rem;
+    }
+    .logCon img {
+        width: 3.45rem;
+    }
+    .logCon button {
+        width: 3.45rem;
+    }
+    .logoBox {
+        left: 0.5rem;
+        top: 0.5rem;
+    }
+    .logRight {
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+    .dashboardItem {
+        width: 22%;
+    }
+    .dashboardItem img {
+        width: 100%;
+        height: 1.2rem;
+    }
+    .dashboardBox > img {
+        width: 4.2rem;
+    }
+    .profileBox {
+        width: 6rem;
+    }
+    .boardBox {
+        width: 4rem;
+    }
+    .rateBox {
+        width: 40vw;
+        height: 41.3vw;
+        font-size: 0.36rem;
+    }
+    /* .rateCon{
+		font-size: .3rem;
+	}
+	.rateCon h2{
+		font-size: .3rem;
+	} */
+    /* .rateCon2 img,.rateCon3 img{
+		width: .5rem;
+	} */
+    /* .rateCon2 h2,.rateCon3 h2{
+		font-size: .2rem;
+	} */
+}
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 80px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .box {
+        width: 100vw;
+    }
+    html {
+        font-size: 80px;
+    }
+    .logForm {
+        width: 90vw;
+    }
+    .logCon {
+        width: 90vw;
+    }
+    .logoBox {
+        top: 0.1rem;
+        left: 0.1rem;
+    }
+    .logRight {
+        top: 0.2rem;
+        right: 0.2rem;
+    }
+    .dashboardItem {
+        width: 45%;
+    }
+    .dashboardItem img {
+        width: 100%;
+        height: 27vw;
+    }
+    .dashboardBox > img {
+        width: 70vw;
+    }
+    .profileBox {
+        width: 100%;
+    }
+    .boardBox {
+        width: 100%;
+    }
+    .rateBox {
+        width: 80vw;
+        height: 82.7vw;
+    }
+}

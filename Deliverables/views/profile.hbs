@@ -1,0 +1,52 @@
+<link rel='stylesheet' href='/stylesheets/index.css' />
+<link rel='stylesheet' href='/stylesheets/media.css' />
+<div class='box fBox'>
+    <div class='header'>
+        <h2 class='small'>Profile</h2>
+        {{#if isShowBadge}}
+            <img src='/images/badge.png' alt='' />
+        {{/if}}
+    </div>
+    <div class='profileBox'>
+        <img src='/images/patient.png' alt='' />
+        <div class='profileItem profileTwo'>
+            <p>{{firstname}}</p>
+            <p>{{lastname}}</p>
+        </div>
+        <div class='profileItem profileTwo'>
+            <p>{{name}}</p>
+        </div>
+        <div class='profileItem'>
+            <p>{{email}}</p>
+        </div>
+        <div class='profileItem'>
+            <p class="psw">{{briefTextBio}}</p>
+        </div>
+        <div class='profileItem'>
+            <p>{{address}}</p>
+        </div>
+        <div class='profileItem'>
+            <p>{{birth}}</p>
+        </div>
+        <div class="logBtn resetBtn">
+            <a href='/general/resetPassword'><button class='btn'>Reset password</button></a>
+        </div>
+        {{! <button class='logOut'>Log out</button> }}
+    </div>
+    <div class='footer'>
+        <a href='/general/dashboard'>
+            <img src='/images/home.png' alt='' />
+        </a>
+        <a href='/general/healthy'>
+            <img src='/images/database.png' alt='' />
+        </a>
+        <a href=''>
+            <img src='/images/profile.png' alt='' />
+        </a>
+        <form action='/general/logout' method='post'>
+            <button type='submit'>
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>

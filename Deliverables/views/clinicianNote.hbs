@@ -1,0 +1,51 @@
+<link rel='stylesheet' href='/stylesheets/indexP.css' />
+<div class='box fBox'>
+    <form class='noteBox' method='post' action="/general/clinicianNote/{{patientId}}">
+        <h2>Clinical Note</h2>
+        <div class='noteBtn'>
+            <a href='/general/clinicianDetail/{{patientId}}'><button>Back to Patient Detail</button></a>
+        </div>
+        <div class='noteCon'>
+            {{#each data}}
+                <div class='noteItem'>
+                    <div class='visNote'>{{this.note}}</div>
+                    <textarea class='enter' readonly>{{this.note}}</textarea>
+                </div>
+            {{/each}}
+        </div>
+        <div class='noteActiveBtn'>
+            <p class='add'>Add more</p>
+            <button class='save' type='submit'>Save</button>
+        </div>
+    </form>
+    <div class='footer'>
+        <a href='/general/clinicianDashboard'>
+            <img src='/images/home1.png' alt='' />
+        </a>
+        <a href='/general/clinicianProfile'>
+            <img src='/images/user.png' alt='' />
+        </a>
+        <form action='/general/clinicianLogout' method='post'>
+            <button type='submit'>
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src='/javascripts/clinicianController.js'></script>
+<script>
+    $(".noteBox").click(function(e){
+        if(e.target.innerHTML=="Save"){
+            return;
+        }
+        let noteItems = $(".noteItem");
+        for(let i=0;i<noteItems.length;i++){
+            let note=noteItems.eq(i);
+            {{!-- console.log(note.find(".enter").val()) --}}
+            if(!note.find(".enter").val()){
+                note.remove();
+            }
+        }
+    })
+</script>

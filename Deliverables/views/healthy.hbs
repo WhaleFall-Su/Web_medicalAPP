@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/media.css">
+<div class="box fBox">
+    <div class="header">
+        <h2 class="small">Viewing your Healthy Data</h2>
+    </div>
+    <div class="recordBox healthyDataBox">
+        <div class="dateBox">
+            <form method="POST" action="/general/healthy/left">
+                <button type="submit">
+                    <div class="dateImgBox left">
+                        <img src="/images/left.png" alt="">
+                    </div>
+                </button>
+            </form>
+            <p>{{healthyStartDateString}}-{{healthyEndDateString}}</p>
+            <form method="POST" action="/general/healthy/right">
+                <button type="submit">
+                    <div class="dateImgBox right">
+                        <img src="/images/right.png" alt="">
+                    </div>
+                </button>
+            </form>
+        </div>    
+        <p class="healthyPs">*You can only choose one week as a period</p>    
+        <div class="healthyTypeBox">
+            <h2>Data Type：</h2>
+            <form class="selectHealth selectBox" method="post" action="/general/healthy/checkType" onsubmit="return false">
+                <div class="select">
+                    <input type="text" name="checkType" class="text_left" readonly value="{{checkType}}">
+                    <span class="arrow_right"></span>
+                </div>
+                <ul class="list">
+                    {{#each dataType}}
+                    <li><button name="checkType" action="/general/healthy/checkType" type="submit">{{this}}</button></li></button>
+                    {{/each}}
+                </ul>
+            </form>
+        </div>
+        <div class="weeklyBox">
+            <h2>Weekly Data</h2>
+             <table class="boardBox" border="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            <p>Date</p>
+                        </th>
+                        <th><p>Data</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each weeklyData}}
+                    <tr>
+                        <th>
+                            <p>{{this.date}}</p>
+                        </th>
+                        <th>
+                            <p class="">{{this.data}}</p>
+                        </th>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div id="main" xData="{{healthyXData}}" yData="{{healthyYData}}"></div>
+        <div class="messageBox">
+            <h2>Support message: </h2>
+            <div class="areaBox">
+                <textarea name="" id="" disabled>{{message}}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+       <a href="/general/dashboard">
+           <img src="/images/home.png" alt="">
+       </a>
+       <a href="">
+           <img src="/images/database.png" alt="">
+       </a>
+       <a href="/general/profile">
+           <img src="/images/profile.png" alt="">
+       </a>
+       <form action="/general/logout" method="post">
+            <button type="submit">
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/echarts.js"></script>
+<script src="/javascripts/usersController.js"></script>
+<script>
+    $(function () {
+        $('.arrow_right').click(function (e) {
+            $(this).parents(".selectBox").find('.list').toggle();
+            e.stopPropagation();
+            $('body').click(function () {
+                $('.list').hide();
+            })
+        })
+        $('.list li button').click(function () {
+            console.log($(this).text())
+            {{!-- $(this).parents(".selectBox").find('.text_left').text(($(this).text())); --}}
+            $(this).parents(".selectBox").find('.text_left').val($(this).text());
+            let name = $(this).attr("name");
+            let action = $(this).attr("action");
+            if(!action){
+                return;
+            }
+            let data={}
+            data[name]=$(this).text();
+            $.ajax({
+                type: "POST",
+                url: action,
+                data,
+                success: function(res){
+                    console.log(res);
+                    if(res.errno == '-1'){
+                        alert(res.message)
+                    }else{
+                        window.location.href="/general/healthy"
+                    }
+                }
+            });
+        })
+    })
+    renderCharts()
+</script>

@@ -1,0 +1,242 @@
+<link rel='stylesheet' href='/stylesheets/index.css' />
+<link rel='stylesheet' href='/stylesheets/media.css' />
+<div class='box fBox'>
+    <div class='header'>
+        <h2 class='small'>Record Your Healthy Data</h2>
+    </div>
+    <div class='recordBox'>
+        <div class='dateBox'>
+            <form method='POST' action='/general/record/left'>
+                <button type='submit'>
+                    <div class='dateImgBox left'>
+                        <img src='/images/left.png' alt='' />
+                    </div>
+                </button>
+            </form>
+            <p>{{dateString}}</p>
+            <form method='POST' action='/general/record/right'>
+                <button type='submit'>
+                    <div class='dateImgBox right'>
+                        <img src='/images/right.png' alt='' />
+                    </div>
+                </button>
+            </form>
+        </div>
+        <div class='noticeBox'>
+            <div class='noticeItem'>
+                <img src='/images/done.png' alt='' />
+                <p>Submitted</p>
+            </div>
+            <div class='noticeItem'>
+                <img src='/images/fail.png' alt='' />
+                <p>Not submitted</p>
+            </div>
+            <div class='noticeItem'>
+                <img src='/images/show.png' alt='' />
+                <p>No need for submission</p>
+            </div>
+        </div>
+        {{!-- <form action='/general/record/submit' method='post'> --}}
+            <div class='recordCon'>
+                <form action="/general/record/submitBlood" method="post" onsubmit="return false">
+                    <div class='recordItem'>
+                        <img class='rImg1' src='/images/temperature.png' alt='' />
+                        <div class='recordItemRight'>
+                            <p>Blood glucose level (In nmol/L)</p>
+                            <div class='recordItemCon'>
+                                {{#if updatedData.bloodUpdated}}
+                                <input type='text' name='blood' disabled value='{{healthy.blood}}' />
+                                {{else}}
+                                <input type='text' name='blood' value='{{healthy.blood}}' />
+                                {{/if}}
+                                {{#if healthy.blood}}
+                                <img src='/images/done.png' alt='' />
+                                {{else}}
+                                {{#if healthy.bloodEnter}}
+                                <img src='/images/fail.png' alt='' />
+                                {{else}}
+                                <img src='/images/show.png' alt='' />
+                                {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class='recordBtn'>
+                        {{#if updatedData.bloodUpdated}}
+                        <button class='gray' disabled>Submit</button>
+                        {{else}}
+                        <button type='submit' class="zc">Submit</button>
+                        {{/if}}
+                    </div>
+                </form>
+                <form action="/general/record/submitWeight" method="post" onsubmit="return false">
+                    <div class='recordItem'>
+                        <img class='rImg1' src='/images/weight.png' alt='' />
+                        <div class='recordItemRight'>
+                            <p>Weight (in kg)</p>
+                            <div class='recordItemCon'>
+                                {{#if updatedData.weightUpdated}}
+                                <input type='text' name='weight' disabled value='{{healthy.weight}}' />
+                                {{else}}
+                                <input type='text' name='weight' value='{{healthy.weight}}' />
+                                {{/if}}
+                                {{#if healthy.weight}}
+                                <img src='/images/done.png' alt='' />
+                                {{else}}
+                                {{#if healthy.weightEnter}}
+                                <img src='/images/fail.png' alt='' />
+                                {{else}}
+                                <img src='/images/show.png' alt='' />
+                                {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class='recordBtn'>
+                       {{#if updatedData.weightUpdated}}
+                        <button class='gray' disabled>Submit</button>
+                        {{else}}
+                        <button type='submit' class="zc">Submit</button>
+                        {{/if}}
+                    </div>
+                </form>
+                <form action="/general/record/submitInsulin" method="post" onsubmit="return false">
+                    <div class='recordItem'>
+                        <img class='rImg2' src='/images/pills.png' alt='' />
+                        <div class='recordItemRight'>
+                            <p>Dose of insulin taken (# dose)</p>
+                            <div class='recordItemCon'>
+                                {{#if updatedData.insulinUpdated}}
+                                <input type='text' name='insulin' disabled value='{{healthy.insulin}}' />
+                                {{else}}
+                                <input type='text' name='insulin' value='{{healthy.insulin}}' />
+                                {{/if}}
+                                {{#if healthy.insulin}}
+                                <img src='/images/done.png' alt='' />
+                                {{else}}
+                                {{#if healthy.insulinEnter}}
+                                <img src='/images/fail.png' alt='' />
+                                {{else}}
+                                <img src='/images/show.png' alt='' />
+                                {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class='recordBtn'>
+                        {{#if updatedData.insulinUpdated}}
+                        <button class='gray' disabled>Submit</button>
+                        {{else}}
+                        <button type='submit' class="zc">Submit</button>
+                        {{/if}}
+                    </div>
+                </form>
+                <form action="/general/record/submitExercise" method="post" onsubmit="return false">
+                    <div class='recordItem'>
+                        <img class='rImg3' src='/images/steps.png' alt='' />
+                        <div class='recordItemRight'>
+                            <p>Exercise (steps)</p>
+                            <div class='recordItemCon'>
+                                {{#if updatedData.exerciseUpdated}}
+                                <input type='text' name='exercise' disabled value='{{healthy.exercise}}' />
+                                {{else}}
+                                <input type='text' name='exercise' value='{{healthy.exercise}}' />
+                                {{/if}}
+                                {{#if healthy.exercise}}
+                                <img src='/images/done.png' alt='' />
+                                {{else}}
+                                {{#if healthy.exerciseEnter}}
+                                <img src='/images/fail.png' alt='' />
+                                {{else}}
+                                <img src='/images/show.png' alt='' />
+                                {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class='recordBtn'>
+                        {{#if updatedData.exerciseUpdated}}
+                        <button class='gray' disabled>Submit</button>
+                        {{else}}
+                        <button type='submit' class="zc">Submit</button>
+                        {{/if}}
+                    </div>
+                </form>
+            </div>
+            {{!-- <div class='recordBtn'>
+                <button type='submit'>Submit</button>
+            </div> --}}
+            {{!--
+        </form> --}}
+        <div class='recordRate'>
+            <p>All-Time Engagement Rate: {{allRate}}</p>
+            {{#if this.isShowBadge}}
+            <img class='badge' src='/images/badge.png' alt='' />
+            {{/if}}
+        </div>
+        <form action='/general/record/add' method='POST' class='cardBox recordCard'>
+            <h2>My Comment</h2>
+            <textarea class='card' name='comment'>{{comment}}</textarea>
+            <div class='addBtn'>
+                <button type='submit'>Add</button>
+            </div>
+        </form>
+        {{!-- <form action='/general/record/add' method='POST' class='cardBox recordCard'>
+            <h2>My Comment</h2>
+            {{#if isCommented}}
+            <textarea class='card' name='comment' readonly>{{comment}}</textarea>
+            {{else}}
+            <textarea class='card' name='comment'>{{comment}}</textarea>
+            {{/if}}
+            <div class='addBtn'>
+                {{#if isCommented}}
+                <button class='gray' disabled>Add</button>
+                {{else}}
+                <button type='submit'>Add</button>
+                {{/if}}
+            </div>
+        </form> --}}
+    </div>
+    <div class='footer'>
+        <a href='/general/dashboard'>
+            <img src='/images/home.png' alt='' />
+        </a>
+        <a href='/general/healthy'>
+            <img src='/images/database.png' alt='' />
+        </a>
+        <a href='/general/profile'>
+            <img src='/images/profile.png' alt='' />
+        </a>
+        <form action='/general/logout' method='post'>
+            <button type='submit'>
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script>
+    $(".recordBtn .zc").click(function(){
+        let form = $(this).parents("form");
+        let input = form.find(".recordItemCon input");
+        console.log(input.val())
+        console.log(form.attr("action"))
+        let action = form.attr("action");
+        let name=input.attr("name");
+        let data={};
+        data[name]=input.val()
+         $.ajax({
+            type: "POST",
+            url: action,
+            data,
+            success: function(res){
+                console.log(res);
+                if(res.errno == '-1'){
+                    alert(res.message)
+                }else{
+                    window.location.href="/general/record"
+                }
+            }
+        });
+    })
+</script>

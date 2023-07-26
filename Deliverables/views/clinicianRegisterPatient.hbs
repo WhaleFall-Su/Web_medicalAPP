@@ -1,0 +1,76 @@
+<link rel='stylesheet' href='/stylesheets/indexP.css' />
+<div class='box fBox'>
+    <form method='POST' action='/general/clinicianRegisterPatient' class='registerBox' onsubmit="return false">
+        <h2>Register a new patient </h2>
+        <input class='name firstname' type='text' name='firstname' placeholder='Patient First name' />
+        <input class='name lastname' type='text' name='lastname' placeholder='Patient Last name' />
+        <input type='text' name='email' class="email" placeholder='Patient email' />
+        <input type='password' name='password' class="password" placeholder='Set patient password' />
+        <input type='password' name='confirmpassword' class="confirmpassword" placeholder='Confirm patient password' />
+        <input type='text' name='displayname' class="displayname" placeholder='Enter patient display name' />
+        <input type='text' class="birth" name="birth" placeholder='Enter patient date of birth similar to 2022/05/05' />
+        <input type='text' class="address" name="address" placeholder='Patient address' />
+        <textarea class='briefTextBio' name='briefTextBio'  placeholder='Enter your profile'></textarea>
+        {{!-- <div class='codeBox'>
+            <input type='text' name='code' placeholder='Send authentication code to your email' />
+            <button>Enter code</button>
+        </div> --}}
+        <button type='submit'>Register</button>
+    </form>
+    <div class='footer'>
+        <a href='/general/clinicianDashboard'>
+            <img src='/images/home1.png' alt='' />
+        </a>
+        <a href='/general/clinicianProfile'>
+            <img src='/images/user.png' alt='' />
+        </a>
+        <form action="/general/clinicianLogout" method="post">
+            <button type="submit">
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/jquery.js"></script>
+<script src='/javascripts/clinicianController.js'></script>
+<script>
+let birth=document.querySelectorAll(".birth")[0];
+birth.onblur=function birthonblur(){
+    let reg=/^\d{4}\/\d{2}\/\d{2}$/;
+    if(!reg.test(birth.value)){
+        alert('Please enter a birthday in XXXX / XX / XX format')
+    }
+}
+$(".registerBox button").click(()=>{
+    let birth=$(".birth").val()
+    let reg=/^\d{4}\/\d{2}\/\d{2}$/;
+    if(!reg.test(birth)){
+        alert('Please enter a birthday in XXXX / XX / XX format');
+        return;
+    }
+    let data={
+        firstname:$(".firstname").val(),
+        lastname:$(".lastname").val(),
+        email:$(".email").val(),
+        password:$(".password").val(),
+        confirmpassword:$(".confirmpassword").val(),
+        displayname:$(".displayname").val(),
+        birth:$(".birth").val(),
+        address:$(".address").val(),
+        briefTextBio:$(".briefTextBio").val()
+    }
+     $.ajax({
+        type: "POST",
+        url: '/general/clinicianRegisterPatient',
+        data,
+        success: function(res){
+            console.log(res);
+            if(res.errno == '-1'){
+                alert(res.message)
+            }else{
+                window.location.href="/general/clinicianDashboard"
+            }
+        }
+    });
+})
+</script>

@@ -1,0 +1,97 @@
+<link rel='stylesheet' href='/stylesheets/index.css' />
+<link rel='stylesheet' href='/stylesheets/media.css' />
+<div class='box fBox'>
+    <div class='header'>
+        <h2 class='small'>Leader Board</h2>
+    </div>
+    <div class='leaderBoardBox'>
+        <div class="boardBoxHide">
+        <table class='boardBox' border='0' cellspacing='0'>
+            <thead>
+                <tr>
+                    <th>
+                        <p>Name</p>
+                    </th>
+                    <th><p>Engagement Rate</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                    {{!-- {{#ifTopFive @key}} --}}
+                        <tr>
+                            <th>
+                                {{#ifLeader1 @key}}
+                                    <img src='/images/medal1.png' alt='' />
+                                {{else}}
+                                    {{#ifLeader2 @key}}
+                                        <img src='/images/medal2.png' alt='' />
+                                    {{else}}
+                                        {{#ifLeader3 @key}}
+                                            <img
+                                                src='/images/medal3.png'
+                                                alt=''
+                                            />
+                                        {{else}}
+                                            {{! <img class="noShow" src="/images/medal1.png" alt=""> }}
+                                        {{/ifLeader3}}
+                                    {{/ifLeader2}}
+                                {{/ifLeader1}}
+                                <p>
+                                    {{#if this.isUser}}
+                                        (You)
+                                    {{/if}}
+                                    {{this.name}}
+                                </p>
+                            </th>
+                            <th>
+                                <p class=''>{{this.rate}}</p>
+                            </th>
+                        </tr>
+                    {{!-- {{/ifTopFive}} --}}
+                {{/each}}
+            </tbody>
+        </table>
+        </div>
+        <div class='rateBox'>
+            {{#each data}}
+                {{#ifLeader1 @key}}
+                    <div class='rateCon rateCon1'>
+                        <img src='/images/medalBig1.png' alt='' />
+                        <h2>{{this.name}}</h2>
+                        <p>{{this.rate}}</p>
+                    </div>
+                {{/ifLeader1}}
+                {{#ifLeader2 @key}}
+                    <div class='rateCon rateCon2'>
+                        <img src='/images/medalBig2.png' alt='' />
+                        <h2>{{this.name}}</h2>
+                        <p>{{this.rate}}</p>
+                    </div>
+                {{/ifLeader2}}
+                {{#ifLeader3 @key}}
+                    <div class='rateCon rateCon3'>
+                        <img src='/images/medalBig3.png' alt='' />
+                        <h2>{{this.name}}</h2>
+                        <p>{{this.rate}}</p>
+                    </div>
+                {{/ifLeader3}}
+            {{/each}}
+        </div>
+    </div>
+    <div class='footer'>
+        <a href='/general/dashboard'>
+            <img src='/images/home.png' alt='' />
+        </a>
+        <a href='/general/healthy'>
+            <img src='/images/database.png' alt='' />
+        </a>
+        <a href='/general/profile'>
+            <img src='/images/profile.png' alt='' />
+        </a>
+        <form action='/general/logout' method='post'>
+            <button type='submit'>
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<link rel='stylesheet' href='/stylesheets/indexP.css' />
+<div class='box fBox'>
+    <div class='dashboardBox'>
+        <h2>Patients Comments</h2>
+        <div class='dashboardHeader'>
+            <div class='conmmentsDesc'>
+                <p>*You can view all patient comments on this page, including
+                    other clinician's patients, in case any patient needs to
+                    communicate in a timely manner.</p>
+            </div>
+            <div class='dashboardBtn'>
+                <a href='/general/clinicianDashboard'><button>Back to Dashboard</button></a>
+            </div>
+        </div>
+        <div class='commentsBox'>
+            <div class='commentsHeader'>
+                <p>Name</p>
+                <p>Comments</p>
+            </div>
+            <div class='commentsCon'>
+                {{#each data}}
+                    <div class='commentsItem'>
+                        <p><a href="/general/clinicianDetail/{{patientId}}">{{this.name}}</a></p>
+                        <p><a href="/general/clinicianDetail/{{patientId}}">{{this.comment}}</a></p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class='footer'>
+        <a href='/general/clinicianDashboard'>
+            <img src='/images/home1.png' alt='' />
+        </a>
+        <a href='/general/clinicianProfile'>
+            <img src='/images/user.png' alt='' />
+        </a>
+        <form action='/general/clinicianLogout' method='post'>
+            <button type='submit'>
+                <img src='/images/exit.png' alt='' />
+            </button>
+        </form>
+    </div>
+</div>
+<script src='/javascripts/clinicianController.js'></script>
